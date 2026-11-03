@@ -19,3 +19,8 @@ Route::middleware('guest')->group(function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware('auth')->name('dashboard');
+
+//login route
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login');

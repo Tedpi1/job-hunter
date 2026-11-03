@@ -40,11 +40,8 @@ class RegisterController extends Controller
         $user->save();
 
         // Automatically authenticate the newly registered user.
-        Auth::login($user);
 
-        $request->session()->regenerate();
-
-        return redirect()->route('dashboard')
+        return redirect()->route('login')
             ->with('success', 'Your account has been created successfully!');
     }
 }
