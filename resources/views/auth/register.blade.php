@@ -178,10 +178,10 @@
 </form>
 
 {{-- Login link --}}
-{{-- <div class="footer">
+ <div class="footer">
     Already have an account?
     <a href="{{ route('login') }}">Sign in</a>
-</div> --}}
+</div>
 
 
 </div>

@@ -45,3 +45,6 @@ class RegisterController extends Controller
             ->with('success', 'Your account has been created successfully!');
     }
 }
+
+
+

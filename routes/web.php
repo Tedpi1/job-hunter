@@ -1,10 +1,12 @@
 <?php
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::middleware('guest')->group(function () {
 
@@ -14,13 +16,22 @@ Route::middleware('guest')->group(function () {
     Route::post('/register', [RegisterController::class, 'store'])
         ->name('register.store');
 
+    // Login
+    Route::get('/', [LoginController::class, 'create'])
+        ->name('login');
+
+    Route::post('/', [LoginController::class, 'store'])
+        ->name('login.store');
+
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware('auth')->name('dashboard');
+Route::middleware('auth')->group(function () {
 
-//login route
-Route::get('/login', function () {
-    return view('auth.login');
-})->name('login');
+    Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->middleware('auth')
+    ->name('dashboard');
+    // Logout
+    Route::post('/logout', [LoginController::class, 'destroy'])
+        ->name('logout');
+
+});
