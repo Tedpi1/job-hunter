@@ -3,6 +3,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\JobController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -33,5 +34,10 @@ Route::middleware('auth')->group(function () {
     // Logout
     Route::post('/logout', [LoginController::class, 'destroy'])
         ->name('logout');
+
+    // Browse Jobs
+    Route::get('/job', [JobController::class, 'index'])
+        ->middleware('auth')
+        ->name('job');
 
 });

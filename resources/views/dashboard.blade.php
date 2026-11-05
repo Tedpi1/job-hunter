@@ -7,74 +7,7 @@
 <div class="dashboard">
 
     {{-- SIDEBAR --}}
-    <aside class="sidebar">
-
-        <a href="{{ route('dashboard') }}" class="sidebar-brand">
-            <span class="brand-icon">J</span>
-            <span>Job Hunter</span>
-        </a>
-
-        <div class="sidebar-section">
-            <p class="sidebar-label">WORKSPACE</p>
-
-            <a href="{{ route('dashboard') }}" class="nav-link active">
-                <span class="nav-icon">▦</span>
-                Dashboard
-            </a>
-
-            <a href="#jobs" class="nav-link">
-                <span class="nav-icon">⌕</span>
-                Browse Jobs
-            </a>
-
-            <a href="#saved-jobs" class="nav-link">
-                <span class="nav-icon">♡</span>
-                Saved Jobs
-            </a>
-
-            <a href="#applications" class="nav-link">
-                <span class="nav-icon">▤</span>
-                My Applications
-            </a>
-        </div>
-
-        <div class="sidebar-section">
-            <p class="sidebar-label">ACCOUNT</p>
-
-            <a href="#profile" class="nav-link">
-                <span class="nav-icon">◎</span>
-                My Profile
-            </a>
-        </div>
-
-        <div class="sidebar-bottom">
-
-            <div class="sidebar-user">
-                <div class="user-avatar">
-                    {{ strtoupper(substr(auth()->user()->first_name ?? auth()->user()->name, 0, 1)) }}
-                </div>
-
-                <div class="user-details">
-                    <strong>
-                        {{ auth()->user()->first_name ?? auth()->user()->name }}
-                    </strong>
-
-                    <span>Job Seeker</span>
-                </div>
-            </div>
-
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-
-                <button type="submit" class="logout-button">
-                    <span>↪</span>
-                    Sign Out
-                </button>
-            </form>
-
-        </div>
-
-    </aside>
+    @include('components.sidebar')
 
 
     {{-- MAIN CONTENT --}}
