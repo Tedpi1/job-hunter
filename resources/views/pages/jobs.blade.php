@@ -138,14 +138,16 @@
 
                     </div>
 
-                    <p class="job-description">
+                    {{-- <p class="job-description">
                         {{ $job['description'] }}
-                    </p>
+                    </p> --}}
 
                     <div class="job-skills">
-                        @foreach($job['skills'] as $skill)
-                            <span>{{ $skill }}</span>
-                        @endforeach
+                        @if(!empty($job->skills))
+                            @foreach((array) $job->skills as $skill)
+                                <span>{{ $skill }}</span>
+                            @endforeach
+                        @endif
                     </div>
 
                     <div class="job-card-footer">
@@ -172,7 +174,7 @@
                     <h3>No jobs found</h3>
                     <p>Try changing your search keywords or filters.</p>
 
-                    <a href="{{ route('jobs.index') }}" class="secondary-button">
+                    <a href="" class="secondary-button">
                         View All Jobs
                     </a>
                 </div>
