@@ -22,6 +22,7 @@ class JobController extends Controller
             'jobs' => $jobs,
             'search' => $request->query('q', ''),
             'location' => $request->query('location', ''),
+            'name' => $request->query('name', ''),
             'type' => $request->query('type', ''),
             'level' => $request->query('level', ''),
             'skills' => $request->query('skills', ''),

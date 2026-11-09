@@ -113,12 +113,12 @@
                     <div class="job-card-header">
 
                         <div class="company-avatar">
-                            {{ strtoupper(substr($job['company'], 0, 1)) }}
+                            {{ strtoupper(substr($job->company?->name ?? 'U', 0, 1)) }}
                         </div>
 
                         <div class="job-title-area">
                             <h3>{{ $job['title'] }}</h3>
-                            <p>{{ $job['company'] }}</p>
+                            <p>{{ $job->company?->name ?? 'Unknown Company' }}</p>
                         </div>
 
                         <button type="button"
@@ -153,7 +153,8 @@
                     <div class="job-card-footer">
 
                         <div>
-                            <strong>{{ $job['salary'] }}</strong>
+                            <p>Published On: <strong>{{ $job->published_at?->format('d M Y') ?? 'Not specified' }}</strong></p>
+                            <p>Deadline: <strong>{{ $job->deadline?->format('d M Y') ?? 'Not specified' }}</strong></p>
                             <small>{{ $job['posted'] }}</small>
                         </div>
 

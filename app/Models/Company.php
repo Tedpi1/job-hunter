@@ -25,4 +25,8 @@ class Company extends Model
             'last_modified' => 'datetime',
         ];
     }
+    public function vacancies(): HasMany
+{
+    return $this->hasMany(Vacancy::class);
+    }
 }
